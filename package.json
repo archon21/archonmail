@@ -5,9 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "npm i && node server",
-     "test": "echo \"Error: no test specified\" && exit 1"
-
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "nodemailer": "^5.1.1",
+    "path": "^0.12.7"
+  }
 }
