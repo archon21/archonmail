@@ -18,7 +18,7 @@ const createApp = () => {
 app.use('/api', require('./api'))
 
   // static file-serving middleware
-  app.use(express.static(path.join(__dirname, '..', 'public')))
+  // app.use(express.static(path.join(__dirname, '..', 'public')))
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
@@ -32,9 +32,9 @@ app.use('/api', require('./api'))
   })
 
   // sends index.html
-  app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public/index.html'))
-  })
+  // app.use('*', (req, res) => {
+  //   res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+  // })
 
   // error handling endware
   app.use((err, req, res, next) => {

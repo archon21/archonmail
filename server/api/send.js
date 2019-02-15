@@ -1,16 +1,14 @@
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
 
-router.post('/send', (req, res, next) => {
+router.post('/', (req, res, next) => {
   const output = `<p>You have a new Contact for ${
     req.body.email
   } </p> <p>Contact Details.</p> <ul>  <li>Name:${
-   req.body.name ? req.body.name : 'Quick Contact'
+    req.body.name ? req.body.name : 'Quick Contact'
   } <li>Email:${req.body.email}</li>
   <li>Subject:${req.body.subject}</li>
-  <li>Phone:${
-    req.body.phone ? req.body.phone : 'No Phone(Quick req.body)'
-  }</li>
+  <li>Phone:${req.body.phone ? req.body.phone : 'No Phone(Quick req.body)'}</li>
   </ul>
   <h3>Message</h3>
   <p>${req.body.message}</p>`;
@@ -34,9 +32,9 @@ router.post('/send', (req, res, next) => {
     if (err) {
       return console.error(err);
     }
-   console.log('Message sent: %s', info.messageId)
-   console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
-   res.render('contact', {msg: 'Email has been sent'})
-    })
+    console.log('Message sent: %s', info.messageId);
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    res.render('contact', { msg: 'Email has been sent' });
+  });
 });
 module.exports = router;
