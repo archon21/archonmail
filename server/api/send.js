@@ -2,6 +2,7 @@ const router = require('express').Router();
 const nodemailer = require('nodemailer');
 
 router.post('/', (req, res, next) => {
+  console.log(req.body)
   const output = `<p>You have a new Contact for ${
     req.body.email
   } </p> <p>Contact Details.</p> <ul>  <li>Name:${
@@ -20,7 +21,7 @@ router.post('/', (req, res, next) => {
       pass: 'Land1447' // generated ethereal password
     }
   });
-  // 'info@hayesdevelopers.com'
+
   let mailOptions = {
     to: req.body.to, // list of receivers
     from: `"Website Contact" ${req.body.email}`, // sender address
@@ -34,7 +35,7 @@ router.post('/', (req, res, next) => {
     }
     console.log('Message sent: %s', info.messageId);
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    res.sendStatus(200)
+    res.render('contact', { msg: 'Email has been sent' });
   });
 });
 module.exports = router;
