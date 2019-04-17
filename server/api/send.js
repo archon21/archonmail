@@ -20,10 +20,10 @@ router.post('/', (req, res, next) => {
       pass: 'Land1447' // generated ethereal password
     }
   });
-
+  // 'info@hayesdevelopers.com'
   let mailOptions = {
+    to: req.body.to, // list of receivers
     from: `"Website Contact" ${req.body.email}`, // sender address
-    to: 'info@hayesdevelopers.com', // list of receivers
     subject: `${req.body.subject}`, // Subject line
     text: `${req.body.message}`, // plain text body
     html: output // html body
@@ -34,7 +34,7 @@ router.post('/', (req, res, next) => {
     }
     console.log('Message sent: %s', info.messageId);
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    res.render('contact', { msg: 'Email has been sent' });
+    res.sendStatus(200)
   });
 });
 module.exports = router;
