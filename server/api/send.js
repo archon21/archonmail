@@ -18,7 +18,7 @@ router.post('/', (req, res, next) => {
     secure: false, // true for 465, false for other ports
     auth: {
       user: 'infohayesmail@gmail.com', // generated ethereal user
-      pass: 'Land1447' // generated ethereal password
+      pass: 'mfqdisfuczcipsjm'
     }
   });
 
